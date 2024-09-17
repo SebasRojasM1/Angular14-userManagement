@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
+  @ViewChild(ModalComponent) modal!: ModalComponent; // Referencia al componente Modal
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  // Abre el modal para añadir un nuevo usuario
+  openAddUserModal(): void {
+    this.modal.open();
+  }
+
+  // Abre el modal para editar un usuario existente
+  openEditUserModal(): void {
+    this.modal.open();
+  }
+
+  
 }
