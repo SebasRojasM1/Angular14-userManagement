@@ -2,9 +2,8 @@
     <img src="../../assets/img/logo.png" alt="">
 </section>
 
-
 <section class="info-container">
-    <button class="add-user">
+    <button class="add-user" (click)="openAddUserModal()">
         Add user
     </button>
 
@@ -21,9 +20,8 @@
             <tr>
                 <td>Username</td>
                 <td>Email</td>
-
                 <td class="actions-cell">
-                    <button class="edit-link">
+                    <button class="edit-link" (click)="openEditUserModal()">
                         Edit
                     </button>
 
@@ -35,3 +33,5 @@
         </tbody>
     </table>
 </section>
+
+<app-modal></app-modal>
