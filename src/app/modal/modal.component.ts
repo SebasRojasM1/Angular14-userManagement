@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from 'src/services/user/user.service';
 
 @Component({
   selector: 'app-modal',
@@ -6,19 +8,49 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
+  userForm: FormGroup; 
 
   isVisible: boolean = false; // Controla la visibilidad del modal
 
-  constructor() { }
+  @Output() onSubmitUser = new EventEmitter<any>();
+
+  constructor(private userService: UserService, private fb: FormBuilder) {
+    this.userForm = this.fb.group({
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+   }
 
   ngOnInit(): void { }
 
-  // Método para abrir el modal
+
+  onSubmit(event: Event): void {
+    event.preventDefault();
+
+    if (this.userForm.valid) {
+      const { username, email, password } = this.userForm.value;
+
+      this.userService.createUser({ username, email, password }).subscribe({
+        next: (response) => {
+          console.log('Usuario creado con éxito:', response);
+          this.close();
+        },
+        error: (error) => {
+          console.error('Error al crear el usuario:', error);
+        }
+      });
+    } else {
+      console.log('El formulario no es válido');
+    }
+  }
+
+
+  //Acciones para abrir y cerrar el modal
   open(): void {
     this.isVisible = true;
   }
 
-  // Método para cerrar el modal
   close(): void {
     this.isVisible = false;
   }
