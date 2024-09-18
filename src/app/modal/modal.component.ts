@@ -9,7 +9,6 @@ import { UserService } from 'src/services/user/user.service';
 })
 export class ModalComponent implements OnInit {
   userForm: FormGroup; 
-
   isVisible: boolean = false; // Controla la visibilidad del modal
 
   @Output() onSubmitUser = new EventEmitter<any>();

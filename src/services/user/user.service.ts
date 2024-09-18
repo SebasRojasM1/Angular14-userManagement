@@ -20,4 +20,9 @@ export class UserService {
   createUser(user: { username: string, email: string, password: string }): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/user/create`, user);
   }
+
+  //Metodo para editar un usuario seleccionado
+  updateUser(userId: string, user: { username: string, email: string, password: string }): Observable<any> {
+    return this.http.patch<any>(`${this.apiUrl}/user/update/${userId}`, user);
+  }
 }

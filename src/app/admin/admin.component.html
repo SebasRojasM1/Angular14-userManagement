@@ -22,7 +22,7 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td class="actions-cell">
-                    <button class="edit-link" (click)="openEditUserModal()">
+                    <button class="edit-link" (click)="openEditUserModal(user)">
                         Edit
                     </button>
 
@@ -36,3 +36,4 @@
 </section>
 
 <app-modal></app-modal>
+<app-update-modal></app-update-modal>

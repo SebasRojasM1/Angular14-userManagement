@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
+import { UpdateModalComponent } from '../update-modal/update-modal.component';
 import { UserService } from 'src/services/user/user.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class AdminComponent implements OnInit {
   users: any[] = [];
 
   @ViewChild(ModalComponent) modal!: ModalComponent; // Referencia al componente Modal
+  @ViewChild(UpdateModalComponent) modalUpdate!: UpdateModalComponent;
 
   constructor(private userService: UserService) { }
 
@@ -43,15 +45,13 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  
+
   //Metodos para abrir y cerrar modal
   openAddUserModal(): void {
     this.modal.open();
   }
 
-  openEditUserModal(): void {
-    this.modal.open();
+  openEditUserModal(user: any): void {
+    this.modalUpdate.open(user); // Llama al método "open" del modal y pasa el usuario
   }
-
-  
 }
