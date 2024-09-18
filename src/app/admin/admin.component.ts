@@ -45,6 +45,22 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  deleteUser(userId: string): void {
+    const confirmDelete = confirm('Are you sure you want to delete this user?'); // Confirmación opcional
+    
+    if (confirmDelete) {
+      this.userService.deleteUser(userId).subscribe({
+        next: () => {
+          console.log('User deleted successfully');
+          this.fetchUsers(); // Refresca la lista de usuarios
+        },
+        error: (error:string) => {
+          console.error('Error deleting user:', error);
+        }
+      });
+    }
+  }
+
 
   //Metodos para abrir y cerrar modal
   openAddUserModal(): void {

@@ -25,4 +25,9 @@ export class UserService {
   updateUser(userId: string, user: { username: string, email: string, password: string }): Observable<any> {
     return this.http.patch<any>(`${this.apiUrl}/user/update/${userId}`, user);
   }
+
+  //Metodo para eliminar un usuario seleccionado
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/user/delete/${userId}`);
+  }
 }
