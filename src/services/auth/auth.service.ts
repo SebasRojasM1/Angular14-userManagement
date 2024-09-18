@@ -7,7 +7,7 @@ import { catchError, tap, throwError } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:3000/auth/login';
+  private apiUrl = 'https://usersapi-x9ra.onrender.com/auth/login';
 
   constructor(private http: HttpClient) {}
 

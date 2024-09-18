@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'https://usersapi-x9ra.onrender.com';
 
   constructor(private http: HttpClient) { }
 
