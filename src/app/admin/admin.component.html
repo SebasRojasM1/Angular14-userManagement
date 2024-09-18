@@ -17,15 +17,16 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td>Username</td>
-                <td>Email</td>
+            <!-- Itera sobre los usuarios -->
+            <tr *ngFor="let user of users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
                 <td class="actions-cell">
-                    <button class="edit-link" (click)="openEditUserModal()">
+                    <button class="edit-link" (click)="openEditUserModal(user)">
                         Edit
                     </button>
 
-                    <button class="delete-btn">
+                    <button class="delete-btn" (click)="deleteUser(user._id)">
                         Delete
                     </button>
                 </td>
@@ -35,3 +36,4 @@
 </section>
 
 <app-modal></app-modal>
+<app-update-modal></app-update-modal>

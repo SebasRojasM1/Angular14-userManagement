@@ -8,6 +8,7 @@ import { AdminComponent } from './admin/admin.component';
 import { ModalComponent } from './modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateModalComponent } from './update-modal/update-modal.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     AdminComponent,
     ModalComponent,
+    UpdateModalComponent,
   ],
   imports: [
     BrowserModule,
