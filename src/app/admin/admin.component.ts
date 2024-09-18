@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
+import { UserService } from 'src/services/user/user.service';
 
 @Component({
   selector: 'app-admin',
@@ -7,20 +8,32 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+  users: any[] = [];
 
   @ViewChild(ModalComponent) modal!: ModalComponent; // Referencia al componente Modal
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.fetchUsers()
   }
 
-  // Abre el modal para añadir un nuevo usuario
+  fetchUsers(): void {
+    this.userService.getUsers().subscribe({
+      next: (data) => {
+        this.users = data;
+        console.log(this.users);
+      },
+      error: (error) => {
+        console.error('Error al obtener usuarios:', error);
+      }
+    });
+  }
+
   openAddUserModal(): void {
     this.modal.open();
   }
 
-  // Abre el modal para editar un usuario existente
   openEditUserModal(): void {
     this.modal.open();
   }

@@ -17,9 +17,10 @@
         </thead>
 
         <tbody>
-            <tr>
-                <td>Username</td>
-                <td>Email</td>
+            <!-- Itera sobre los usuarios -->
+            <tr *ngFor="let user of users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
                 <td class="actions-cell">
                     <button class="edit-link" (click)="openEditUserModal()">
                         Edit
