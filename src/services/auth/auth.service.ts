@@ -7,7 +7,7 @@ import { catchError, tap, throwError } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'https://users-api-phi.vercel.app/auth/login';
+  private apiUrl = 'http://localhost:3000/auth/login';
 
   constructor(private http: HttpClient) {}
 
