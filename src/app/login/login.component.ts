@@ -11,6 +11,7 @@ import { AuthService } from 'src/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string | null = null;
+  showErrorModal: boolean = false; // Control para el modal
 
   constructor(
     private fb: FormBuilder,
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
 
     if (!this.loginForm.valid) {
       this.errorMessage = "Please provide valid credentials.";
+      this.showErrorModal = true; // Mostrar el modal si el formulario es inválido
       return;
     }
 
@@ -39,11 +41,17 @@ export class LoginComponent implements OnInit {
       next: () => {
         this.router.navigate(['/admin']);
       },
-      error: (error : string) => {
-        // Mostrar mensaje de error en caso de fallo
+      error: (error: string) => {
+        // Mostrar el modal si ocurre un error en el login
         this.errorMessage = "Invalid login credentials.";
+        this.showErrorModal = true;
         console.error("Login failed", error);
       }
     });
+  }
+
+  // Método para cerrar el modal
+  closeErrorModal() {
+    this.showErrorModal = false;
   }
 }

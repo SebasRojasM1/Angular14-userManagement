@@ -9,6 +9,7 @@ import { ModalComponent } from './modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
+import { ModalErrorComponent } from './modal-error/modal-error.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { UpdateModalComponent } from './update-modal/update-modal.component';
     AdminComponent,
     ModalComponent,
     UpdateModalComponent,
+    ModalErrorComponent,
   ],
   imports: [
     BrowserModule,

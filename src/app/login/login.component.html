@@ -1,25 +1,27 @@
 <section class="container">
-
     <div class="login-container">
-        <div class="logo">
-            <img src="../assets/img/logo.png" alt="">
+      <div class="logo">
+        <img src="../assets/img/logo.png" alt="">
+      </div>
+  
+      <h2>Login</h2>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" action="" method="post" class="form">
+        <div class="input-container">
+          <input formControlName="email" type="email" placeholder="info@mailaddress.com">
         </div>
   
-        <h2>Login</h2>
+        <div class="input-container">
+          <input formControlName="password" type="password" placeholder="••••••••••••">
+        </div>
   
-  
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit($event)" action="" method="post" class="form">
-            <div class="input-container">
-                <input formControlName="email" type="email" placeholder="info@mailaddress.com">
-            </div>
-  
-            <div class="input-container">
-                <input formControlName="password" type="password" placeholder="••••••••••••">
-            </div>
-  
-            <div class="input-container">
-                <input [disabled]="loginForm.invalid" type="submit" value="Login">
-            </div>
-        </form>
+        <div class="input-container">
+          <input [disabled]="loginForm.invalid" type="submit" value="Login">
+        </div>
+      </form>
     </div>
+  
+    <!-- Modal de error -->
+    <app-modal-error *ngIf="showErrorModal" (close)="closeErrorModal()"></app-modal-error>
   </section>
+  
