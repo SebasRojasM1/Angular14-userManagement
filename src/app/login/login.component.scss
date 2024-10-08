@@ -62,4 +62,21 @@
         }
       }
     }
+
+    .register{
+      color: white;
+
+      span{
+        text-decoration: underline;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.5s ease;
+
+        &:hover{
+          color: #8ceabb;
+          transition: 0.5s ease;
+
+        }
+      }
+    }
   }
