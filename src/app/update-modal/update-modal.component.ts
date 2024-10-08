@@ -45,16 +45,19 @@ export class UpdateModalComponent implements OnInit {
       // Llamar al método updateUser del UserService
       this.userService.updateUser(this.userId, this.userFormEdit.value).subscribe({
         next: (response) => {
+          alert("User updated succesfully.")
           console.log('Usuario actualizado:', response);
           this.close();
           // Emite el evento para que el componente padre (AdminComponent) actualice la tabla
           this.onSubmitUser.emit();
         },
         error: (error) => {
+          alert("Error updating the user.")
           console.error('Error al actualizar el usuario:', error);
         }
       });
     } else {
+      alert("The form it`s not valid")
       console.log('El formulario no es válido');
     }
   }

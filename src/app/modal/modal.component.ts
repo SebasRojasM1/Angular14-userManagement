@@ -32,14 +32,17 @@ export class ModalComponent implements OnInit {
       this.userService.createUser({ username, email, password }).subscribe({
         next: (response) => {
           console.log('Usuario creado con éxito:', response);
+          alert("User created succesfully.")
           this.onSubmitUser.emit(response); // Emitir el evento de registro
           this.close();
         },
         error: (error) => {
+          alert("Error creating the user.")
           console.error('Error al crear el usuario:', error);
         }
       });
     } else {
+      alert("The form it`s not valid.")
       console.log('El formulario no es válido');
     }
   }

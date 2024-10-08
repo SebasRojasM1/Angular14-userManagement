@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe({
       next: () => {
+        alert('User login succesfully.');
         this.router.navigate(['/admin']);
       },
       error: (error: string) => {
@@ -65,6 +66,7 @@ export class LoginComponent implements OnInit {
   // Método para manejar la inscripción del usuario
   handleUserRegistration(event: any) {
     // Puedes manejar la lógica después de crear el usuario aquí
+    alert("User registered succesfully.")
     console.log('Usuario registrado:', event);
   }
 }
