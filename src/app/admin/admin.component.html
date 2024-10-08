@@ -1,0 +1,39 @@
+<section class="nav">
+    <img src="../../assets/img/logo.png" alt="">
+</section>
+
+<section class="info-container">
+    <button class="add-user" (click)="openAddUserModal()">
+        Add user
+    </button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Itera sobre los usuarios -->
+            <tr *ngFor="let user of users">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td class="actions-cell">
+                    <button class="edit-link" (click)="openEditUserModal(user)">
+                        Edit
+                    </button>
+
+                    <button class="delete-btn" (click)="deleteUser(user._id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<app-modal></app-modal>
+<app-update-modal></app-update-modal>

@@ -1,0 +1,124 @@
+.nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #262e3a;
+    padding: 20px 0;
+
+    img{
+        width: 190px;
+    }
+}
+
+.info-container {
+    width: 100%;
+    max-width: 64rem; 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: auto;
+    margin: 2.5rem auto;
+  
+    .add-user {
+      background-color: #8ceabb;
+      color: white;
+      padding: 0.325rem 0.75rem;
+      border-radius: 10px;
+      transition: 0.6s ease-in-out;
+      width: 10%;
+      cursor: pointer;
+      color: black;
+      font-weight: bold;
+  
+      &:hover {
+        background-color: #2d7463;
+        color: white;
+      }
+    }
+  
+    table {
+      margin-top: 0.5rem;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-collapse: collapse;
+      border: 2px solid #262e3a;
+      width: 100%;
+  
+      thead {
+        border: 2px solid #262e3a;
+        background-color: #262e3a;
+  
+        th {
+          padding: 0.5rem;
+          text-align: center;
+          color: white;
+          text-transform: uppercase;
+  
+          &:nth-child(1) {
+            width: 25%;
+          }
+  
+          &:nth-child(2) {
+            width: 50%; 
+          }
+  
+          &:nth-child(3) {
+            width: 25%;
+          }
+        }
+      }
+  
+
+
+      tbody {
+        text-align: center;
+  
+        tr {
+          border: 2px solid #262e3a;
+  
+          td {
+            padding: 0.75rem;
+            color: white;
+          }
+  
+          .actions-cell {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+  
+            .edit-link,
+            .delete-btn {
+              padding: 0.5rem 1.75rem; 
+              border-radius: 10px;
+              font-weight: bold;
+              transition: 0.3s ease-in-out;
+              cursor: pointer;
+  
+              &.edit-link {
+                background-color: #fbbf24; 
+                transition: 0.6s ease-in-out;
+  
+                &:hover {
+                  background-color: #f59e0b;
+                  transition: 0.6s ease-in-out;
+                }
+              }
+  
+              &.delete-btn {
+                background-color: #b91c1c;
+                color: white;
+                cursor: pointer;
+                transition: 0.6s ease-in-out;
+  
+                &:hover {
+                  background-color: #991b1b;
+                  transition: 0.6s ease-in-out;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
