@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/services/auth/auth.service';
+import { ModalComponent } from '../modal/modal.component'; // Importa el modal
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   errorMessage: string | null = null;
   showErrorModal: boolean = false; // Control para el modal
+  @ViewChild('registerModal') registerModal!: ModalComponent; // Referencia al modal
 
   constructor(
     private fb: FormBuilder,
@@ -50,8 +52,19 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  // Método para abrir el modal de registro
+  openRegisterModal() {
+    this.registerModal.open();
+  }
+
   // Método para cerrar el modal
   closeErrorModal() {
     this.showErrorModal = false;
+  }
+
+  // Método para manejar la inscripción del usuario
+  handleUserRegistration(event: any) {
+    // Puedes manejar la lógica después de crear el usuario aquí
+    console.log('Usuario registrado:', event);
   }
 }

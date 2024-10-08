@@ -19,10 +19,9 @@ export class ModalComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
-   }
+  }
 
   ngOnInit(): void { }
-
 
   onSubmit(event: Event): void {
     event.preventDefault();
@@ -33,6 +32,7 @@ export class ModalComponent implements OnInit {
       this.userService.createUser({ username, email, password }).subscribe({
         next: (response) => {
           console.log('Usuario creado con éxito:', response);
+          this.onSubmitUser.emit(response); // Emitir el evento de registro
           this.close();
         },
         error: (error) => {
@@ -44,8 +44,7 @@ export class ModalComponent implements OnInit {
     }
   }
 
-
-  //Acciones para abrir y cerrar el modal
+  // Acciones para abrir y cerrar el modal
   open(): void {
     this.isVisible = true;
   }

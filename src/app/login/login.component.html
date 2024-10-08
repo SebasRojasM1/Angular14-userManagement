@@ -19,11 +19,13 @@
         <input [disabled]="loginForm.invalid" type="submit" value="Login">
       </div>
 
-      <p class="register">Don't have an account? <span>Register now</span></p>
+      <p class="register">Don't have an account? <span (click)="openRegisterModal()">Register now</span></p>
     </form>
   </div>
 
   <!-- Modal de error -->
   <app-modal-error *ngIf="showErrorModal" (close)="closeErrorModal()"></app-modal-error>
-</section>
 
+  <!-- Modal de registro -->
+  <app-modal (onSubmitUser)="handleUserRegistration($event)" #registerModal></app-modal>
+</section>
